@@ -1,6 +1,6 @@
 {
   "name": "@openapijs/core",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "core express typescript openapi.js library ",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,9 @@
     "prepare" : "npm run build",
     "prepublishOnly" : "npm run format",
     "version" : "npm run format && git add -A lib/src",
-    "postversion": "git push && git push --tags"
+    "postversion": "git push && git push --tags",
+    "lib-publish": "npm publish --access public"
+
   },
   "dependencies": {
     "express": "^4.16.3",

@@ -2,33 +2,33 @@ import { RequestHandler, RouterOptions } from 'express';
 import 'reflect-metadata';
 
 type Middleware = RequestHandler;
-type WrapperFunction = ((action: any) => any);
+type WrapperFunction = (action: any) => any;
 type Controller = InstanceType<any>;
 
 enum Route {
-  CHECK_OUT='checkout',
-  COPY='copy',
-  DELETE='delete',
-  GET='get',
-  HEAD='head',
-  LOCK='lock',
-  MERGE='merge',
-  MK_ACTIVITY='mkactivity',
-  MK_COL='mkcol',
-  MOVE='move',
-  M_SEARCH='m_search',
-  NOTIFY='notify',
-  OPTIONS='options',
-  PATCH='patch',
-  POST='post',
-  PURGE='purge',
-  PUT='put',
-  REPORT='REPORT',
-  SEARCH='search',
-  SUBSCRIBE='subscribe',
-  TRACE='trace',
-  UNLOCK='unlock',
-  UN_SUBSCRIBE='unsubscribe'
+  CHECK_OUT = 'checkout',
+  COPY = 'copy',
+  DELETE = 'delete',
+  GET = 'get',
+  HEAD = 'head',
+  LOCK = 'lock',
+  MERGE = 'merge',
+  MK_ACTIVITY = 'mkactivity',
+  MK_COL = 'mkcol',
+  MOVE = 'move',
+  M_SEARCH = 'm_search',
+  NOTIFY = 'notify',
+  OPTIONS = 'options',
+  PATCH = 'patch',
+  POST = 'post',
+  PURGE = 'purge',
+  PUT = 'put',
+  REPORT = 'REPORT',
+  SEARCH = 'search',
+  SUBSCRIBE = 'subscribe',
+  TRACE = 'trace',
+  UNLOCK = 'unlock',
+  UN_SUBSCRIBE = 'unsubscribe',
 }
 
 export function Checkout(path?: string): MethodDecorator {
@@ -124,20 +124,19 @@ export function Unsubscribe(path?: string): MethodDecorator {
 }
 
 function RoutesUtility(httpmethods: string, path?: string): MethodDecorator {
-
   return (target: any, property: string | symbol, descriptor?: PropertyDescriptor) => {
-      let routeAnnotations = Reflect.getOwnMetadata(property, target);
-      if (!routeAnnotations) {
-        routeAnnotations = {};
-      }
-      routeAnnotations = {
-          httpmethods,
-          path: path ? ('/' + path) : '',
-          ...routeAnnotations,
-      };
-      Reflect.defineMetadata(property, routeAnnotations, target);
-      if (descriptor) {
-          return descriptor;
-      }
+    let routeAnnotations = Reflect.getOwnMetadata(property, target);
+    if (!routeAnnotations) {
+      routeAnnotations = {};
+    }
+    routeAnnotations = {
+      httpmethods,
+      path: path ? '/' + path : '',
+      ...routeAnnotations,
+    };
+    Reflect.defineMetadata(property, routeAnnotations, target);
+    if (descriptor) {
+      return descriptor;
+    }
   };
 }

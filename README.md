@@ -22,4 +22,8 @@ add the -scope to the package.json name i.e. @openapijs/core
 Test the published package
 
 > npm install @openapijs/core
+
+Bumping a new version
+
+> npm version patch
 ```

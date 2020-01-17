@@ -1,4 +1,4 @@
 # core
-core express typescript library
+Still in development !!!
 
 

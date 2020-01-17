@@ -4,15 +4,15 @@
   "description": "core express typescript openapi.js library ",
   "main": "index.js",
   "scripts": {
-    "build": "tsc && copyfiles -f \"config/package.json\" \"dist\"",
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "format": "prettier --write \"lib/src/**/*.ts\" \"lib/src/**/*.js\"",
+    "format": "prettier --write \"*.ts\" \"*.js\"",
     "lint": "tslint -p tsconfig.json",
     "prepare": "npm run build",
     "prepublishOnly": "npm run format",
     "version": "npm run format && git add -A lib/src",
     "postversion": "git push && git push --tags",
-    "lib-publish": "npm publish \"dist\" --access public"
+    "lib-publish": "npm publish --access public"
   },
   "dependencies": {
     "copyfiles": "^2.1.1",

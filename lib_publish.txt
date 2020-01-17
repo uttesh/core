@@ -24,3 +24,6 @@ Bumping a new version
 
 > npm version patch
 ```
+
+===========
+To publish the content inside the dist, copy the package.json file to dist folder and run the `npm publsih` from dist folder, this will publish only the content of the dist folder.
